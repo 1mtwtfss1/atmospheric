@@ -68,7 +68,7 @@ public class PassionVineBlock extends Block implements BonemealableBlock {
 	public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
 		int i = state.getValue(AGE);
 
-		boolean light = level.getRawBrightness(pos.above(), 0) >= 5;
+		boolean light = level.getRawBrightness(pos, 0) >= 5;
 		boolean notOld = i < 4;
 		boolean canFlower = i >= 1;
 		boolean canFruit = notOld && light;
