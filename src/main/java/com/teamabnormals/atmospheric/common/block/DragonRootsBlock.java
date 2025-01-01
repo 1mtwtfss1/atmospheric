@@ -71,6 +71,10 @@ public class DragonRootsBlock extends BushBlock implements BonemealableBlock {
 		return hasFruit(TOP_STAGE, state) || hasFruit(BOTTOM_STAGE, state);
 	}
 
+	public static boolean hasMaxFruit(BlockState state) {
+		return isDouble(state) ? hasFruit(TOP_STAGE, state) && hasFruit(BOTTOM_STAGE, state) : hasFruit(state);
+	}
+
 	public static boolean hasFruit(EnumProperty<DragonRootsStage> property, BlockState state) {
 		DragonRootsStage stage = state.getValue(property);
 		return stage == DragonRootsStage.FRUIT || stage == DragonRootsStage.FLOWERING || isEnder(property, state);
@@ -96,7 +100,7 @@ public class DragonRootsBlock extends BushBlock implements BonemealableBlock {
 
 	@Override
 	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
-		if (!hasFruit(state) && player.getItemInHand(hand).is(Items.BONE_MEAL)) {
+		if (!hasMaxFruit(state) && player.getItemInHand(hand).is(Items.BONE_MEAL)) {
 			return InteractionResult.PASS;
 		} else if (hasFruit(state)) {
 			level.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
@@ -231,7 +235,7 @@ public class DragonRootsBlock extends BushBlock implements BonemealableBlock {
 
 	@Override
 	public boolean isValidBonemealTarget(LevelReader worldIn, BlockPos pos, BlockState state, boolean isClient) {
-		return !hasFruit(state);
+		return !hasMaxFruit(state);
 	}
 
 	@Override
