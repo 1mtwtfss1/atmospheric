@@ -8,8 +8,25 @@
     "type": "blueprint:conditional",
     "conditions": [
       {
-        "type": "atmospheric:config",
-        "value": "grimwood_ancient_cities"
+        "type": "forge:and",
+        "values": [
+          {
+            "type": "atmospheric:config",
+            "value": "grimwood_ancient_cities"
+          },
+          {
+            "type": "forge:mod_loaded",
+            "modid": "woodworks"
+          },
+          {
+            "type": "woodworks:config",
+            "value": "wooden_ladders"
+          },
+          {
+            "type": "woodworks:config",
+            "value": "wooden_ladders_in_villages"
+          }
+        ]
       }
     ],
     "value": "minecraft:ancient_city"

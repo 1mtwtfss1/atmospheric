@@ -1,18 +1,15 @@
 {
-  "type": "blueprint:simple",
-  "priority": "high",
-  "replaces_block": "woodworks:jungle_bookshelf",
-  "replaces_with": "atmospheric:yucca_bookshelf",
-  "selector": {
-    "type": "names",
+  "repaletter": {
+    "type": "blueprint:simple",
+    "replaces_block": "minecraft:bookshelf",
+    "replaces_with": "atmospheric:laurel_bookshelf"
+  },
+  "structures": {
+    "type": "blueprint:conditional",
     "conditions": [
       {
-        "type": "blueprint:and",
+        "type": "forge:and",
         "values": [
-          {
-            "type": "atmospheric:config",
-            "value": "yucca_desert_villages"
-          },
           {
             "type": "forge:mod_loaded",
             "modid": "woodworks"
@@ -28,8 +25,6 @@
         ]
       }
     ],
-    "config": [
-      "minecraft:village_desert"
-    ]
+    "value": "atmospheric:village_scrubland"
   }
 }

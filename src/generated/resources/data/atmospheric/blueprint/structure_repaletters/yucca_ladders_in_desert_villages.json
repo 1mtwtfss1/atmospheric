@@ -1,4 +1,5 @@
 {
+  "priority": 50,
   "repaletter": {
     "type": "blueprint:simple",
     "replaces_block": "minecraft:ladder",
@@ -8,8 +9,25 @@
     "type": "blueprint:conditional",
     "conditions": [
       {
-        "type": "atmospheric:config",
-        "value": "yucca_desert_villages"
+        "type": "forge:and",
+        "values": [
+          {
+            "type": "atmospheric:config",
+            "value": "yucca_desert_villages"
+          },
+          {
+            "type": "forge:mod_loaded",
+            "modid": "woodworks"
+          },
+          {
+            "type": "woodworks:config",
+            "value": "wooden_ladders"
+          },
+          {
+            "type": "woodworks:config",
+            "value": "wooden_ladders_in_villages"
+          }
+        ]
       }
     ],
     "value": "minecraft:village_desert"

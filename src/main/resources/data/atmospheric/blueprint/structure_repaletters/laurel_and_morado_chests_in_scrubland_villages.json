@@ -1,8 +1,17 @@
 {
   "repaletter": {
-    "type": "blueprint:simple",
-    "replaces_block": "minecraft:chest",
-    "replaces_with": "atmospheric:grimwood_chest"
+    "type": "blueprint:weighted",
+    "replaces_blocks": "forge:chests/wooden",
+    "replaces_with": [
+      {
+        "data": "atmospheric:laurel_chest",
+        "weight": 1
+      },
+      {
+        "data": "atmospheric:morado_chest",
+        "weight": 1
+      }
+    ]
   },
   "structures": {
     "type": "blueprint:conditional",
@@ -10,10 +19,6 @@
       {
         "type": "forge:and",
         "values": [
-          {
-            "type": "atmospheric:config",
-            "value": "grimwood_ancient_cities"
-          },
           {
             "type": "forge:mod_loaded",
             "modid": "woodworks"
@@ -29,6 +34,6 @@
         ]
       }
     ],
-    "value": "minecraft:ancient_city"
+    "value": "atmospheric:village_scrubland"
   }
 }
