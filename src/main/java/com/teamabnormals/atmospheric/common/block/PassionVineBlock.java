@@ -66,17 +66,14 @@ public class PassionVineBlock extends Block implements BonemealableBlock {
 
 	@Override
 	public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-		int i = state.getValue(AGE);
+		int age = state.getValue(AGE);
 
-		boolean light = level.getRawBrightness(pos, 0) >= 5;
-		boolean notOld = i < 4;
-		boolean canFlower = i >= 1;
-		boolean canFruit = notOld && light;
-		boolean randomNum = level.random.nextInt(2) == 1;
+		boolean canFlower = age >= 1;
+		boolean canFruit = age < 4 && level.getRawBrightness(pos, 0) >= 5;
 
 		if (canFlower) {
 			if (canFruit) {
-				if (randomNum) {
+				if (level.random.nextBoolean()) {
 					attemptGrowDown(state, level, pos, random);
 				} else {
 					attemptGrowFruit(state, level, pos, random);
@@ -84,10 +81,8 @@ public class PassionVineBlock extends Block implements BonemealableBlock {
 			} else {
 				attemptGrowDown(state, level, pos, random);
 			}
-		} else {
-			if (canFruit) {
-				attemptGrowFruit(state, level, pos, random);
-			}
+		} else if (canFruit) {
+			attemptGrowFruit(state, level, pos, random);
 		}
 	}
 
@@ -106,20 +101,18 @@ public class PassionVineBlock extends Block implements BonemealableBlock {
 
 	public void attemptGrowFruit(BlockState state, Level level, BlockPos pos, RandomSource random) {
 		int i = state.getValue(AGE);
-		state = this.determineState(state, level, pos.below());
+		state = this.determineState(state, level, pos);
 		Direction direction = state.getValue(FACING);
 		BlockState hanging = level.getBlockState(pos.relative(direction.getOpposite()));
-		if (hanging.is(AtmosphericBlockTags.PASSION_VINE_GROWABLE_ON)) {
-			if (i < 4 && ForgeHooks.onCropsGrowPre(level, pos, state, random.nextInt(7) == 0)) {
-				level.setBlock(pos, state.setValue(AGE, i + 1), 2);
-				ForgeHooks.onCropsGrowPost(level, pos, state);
-			}
-		} else {
-			if (i < 1 && ForgeHooks.onCropsGrowPre(level, pos, state, random.nextInt(7) == 0)) {
+
+		if (ForgeHooks.onCropsGrowPre(level, pos, state, random.nextInt(7) == 0)) {
+			boolean isHanging = hanging.is(AtmosphericBlockTags.PASSION_VINE_GROWABLE_ON);
+			if ((isHanging && i < 4) || (!isHanging && i < 1)) {
 				level.setBlock(pos, state.setValue(AGE, i + 1), 2);
 				ForgeHooks.onCropsGrowPost(level, pos, state);
 			}
 		}
+
 	}
 
 	public void attemptGrowDown(BlockState state, Level level, BlockPos pos, RandomSource random) {
