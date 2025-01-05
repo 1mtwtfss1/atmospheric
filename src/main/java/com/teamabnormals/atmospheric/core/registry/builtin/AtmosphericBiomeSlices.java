@@ -1,4 +1,4 @@
-package com.teamabnormals.atmospheric.core.other;
+package com.teamabnormals.atmospheric.core.registry.builtin;
 
 import com.mojang.datafixers.util.Pair;
 import com.teamabnormals.atmospheric.core.Atmospheric;
@@ -47,14 +47,14 @@ public final class AtmosphericBiomeSlices {
 		List<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> entries = new ArrayList<>();
 		new AtmosphericBiomeBuilder().addBiomes(entries::add);
 
-		context.register(RAINFOREST_SLICE, new ModdedBiomeSlice(20, MultiNoiseModdedBiomeProvider.builder().biomes(entries::forEach)
+		context.register(RAINFOREST_SLICE, new ModdedBiomeSlice(25, MultiNoiseModdedBiomeProvider.builder().biomes(entries::forEach)
 				.area(RAINFOREST_AREA, RAINFOREST)
 				.area(SPARSE_RAINFOREST_AREA, SPARSE_RAINFOREST)
 				.area(RAINFOREST_BASIN_AREA, RAINFOREST_BASIN)
 				.area(SPARSE_RAINFOREST_BASIN_AREA, SPARSE_RAINFOREST_BASIN)
 				.build(), LevelStem.OVERWORLD));
 
-		context.register(DUNES_AND_SCRUBLAND_SLICE, new ModdedBiomeSlice(20, MultiNoiseModdedBiomeProvider.builder().biomes(entries::forEach)
+		context.register(DUNES_AND_SCRUBLAND_SLICE, new ModdedBiomeSlice(30, MultiNoiseModdedBiomeProvider.builder().biomes(entries::forEach)
 				.area(DUNES_AREA, DUNES)
 				.area(FLOURISHING_DUNES_AREA, FLOURISHING_DUNES)
 				.area(ROCKY_DUNES_AREA, ROCKY_DUNES)
@@ -63,7 +63,7 @@ public final class AtmosphericBiomeSlices {
 				.area(SNOWY_SCRUBLAND_AREA, SNOWY_SCRUBLAND)
 				.build(), LevelStem.OVERWORLD));
 
-		context.register(SPINY_THICKET_SLICE, new ModdedBiomeSlice(20, MultiNoiseModdedBiomeProvider.builder().biomes(entries::forEach)
+		context.register(SPINY_THICKET_SLICE, new ModdedBiomeSlice(25, MultiNoiseModdedBiomeProvider.builder().biomes(entries::forEach)
 				.area(SPINY_THICKET_AREA, SPINY_THICKET).build(), LevelStem.OVERWORLD));
 
 		context.register(ASPEN_SLICE, new ModdedBiomeSlice(5, MultiNoiseModdedBiomeProvider.builder().biomes(entries::forEach)
@@ -72,7 +72,7 @@ public final class AtmosphericBiomeSlices {
 		context.register(LAUREL_SLICE, new ModdedBiomeSlice(15, MultiNoiseModdedBiomeProvider.builder().biomes(entries::forEach)
 				.area(LAUREL_FOREST_AREA, LAUREL_FOREST).build(), LevelStem.OVERWORLD));
 
-		context.register(KOUSA_SLICE, new ModdedBiomeSlice(5, MultiNoiseModdedBiomeProvider.builder().biomes(entries::forEach)
+		context.register(KOUSA_SLICE, new ModdedBiomeSlice(8, MultiNoiseModdedBiomeProvider.builder().biomes(entries::forEach)
 				.area(KOUSA_JUNGLE_AREA, KOUSA_JUNGLE).build(), LevelStem.OVERWORLD));
 	}
 

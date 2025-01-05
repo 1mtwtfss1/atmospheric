@@ -1,7 +1,7 @@
 package com.teamabnormals.atmospheric.core.data.server;
 
 import com.teamabnormals.atmospheric.core.Atmospheric;
-import com.teamabnormals.atmospheric.core.other.AtmosphericBiomeSlices;
+import com.teamabnormals.atmospheric.core.registry.builtin.AtmosphericBiomeSlices;
 import com.teamabnormals.atmospheric.core.registry.AtmosphericBiomes;
 import com.teamabnormals.atmospheric.core.registry.AtmosphericFeatures.AtmosphericConfiguredFeatures;
 import com.teamabnormals.atmospheric.core.registry.AtmosphericFeatures.AtmosphericPlacedFeatures;
