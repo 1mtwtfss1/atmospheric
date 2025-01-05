@@ -45,10 +45,22 @@ public class DragonRootsBlock extends BushBlock implements BonemealableBlock {
 	public static final EnumProperty<DragonRootsStage> BOTTOM_STAGE = EnumProperty.create("bottom", DragonRootsStage.class);
 
 	private static final Map<Direction, VoxelShape> SHAPES = Maps.newEnumMap(ImmutableMap.of(
-			Direction.NORTH, Block.box(0.0D, 6.0D, 5.0D, 16.0D, 14.0D, 16.0D),
-			Direction.SOUTH, Block.box(0.0D, 6.0D, 0.0D, 16.0D, 14.0D, 11.0D),
-			Direction.WEST, Block.box(5.0D, 6.0D, 0.0D, 16.0D, 14.0D, 16.0D),
-			Direction.EAST, Block.box(0.0D, 6.0D, 0.0D, 11.0D, 14.0D, 16.0D)));
+			Direction.NORTH, Block.box(0.0D, 1.0D, 5.0D, 16.0D, 15.0D, 16.0D),
+			Direction.SOUTH, Block.box(0.0D, 1.0D, 0.0D, 16.0D, 15.0D, 11.0D),
+			Direction.WEST, Block.box(5.0D, 1.0D, 0.0D, 16.0D, 15.0D, 16.0D),
+			Direction.EAST, Block.box(0.0D, 1.0D, 0.0D, 11.0D, 15.0D, 16.0D)));
+
+	private static final Map<Direction, VoxelShape> SHAPES_TOP = Maps.newEnumMap(ImmutableMap.of(
+			Direction.NORTH, Block.box(0.0D, 8.0D, 5.0D, 16.0D, 15.0D, 16.0D),
+			Direction.SOUTH, Block.box(0.0D, 8.0D, 0.0D, 16.0D, 15.0D, 11.0D),
+			Direction.WEST, Block.box(5.0D, 8.0D, 0.0D, 16.0D, 15.0D, 16.0D),
+			Direction.EAST, Block.box(0.0D, 8.0D, 0.0D, 11.0D, 15.0D, 16.0D)));
+
+	private static final Map<Direction, VoxelShape> SHAPES_BOTTOM = Maps.newEnumMap(ImmutableMap.of(
+			Direction.NORTH, Block.box(0.0D, 1.0D, 5.0D, 16.0D, 8.0D, 16.0D),
+			Direction.SOUTH, Block.box(0.0D, 1.0D, 0.0D, 16.0D, 8.0D, 11.0D),
+			Direction.WEST, Block.box(5.0D, 1.0D, 0.0D, 16.0D, 8.0D, 16.0D),
+			Direction.EAST, Block.box(0.0D, 1.0D, 0.0D, 11.0D, 8.0D, 16.0D)));
 
 	public DragonRootsBlock(Properties properties) {
 		super(properties);
@@ -230,7 +242,9 @@ public class DragonRootsBlock extends BushBlock implements BonemealableBlock {
 
 	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context) {
-		return SHAPES.get(state.getValue(FACING));
+		boolean top = state.getValue(TOP_STAGE) != DragonRootsStage.NONE;
+		boolean bottom = state.getValue(BOTTOM_STAGE) != DragonRootsStage.NONE;
+		return (top && bottom ? SHAPES : top ? SHAPES_TOP : SHAPES_BOTTOM).get(state.getValue(FACING));
 	}
 
 	@Override
