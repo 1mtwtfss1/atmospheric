@@ -7,12 +7,12 @@ import com.teamabnormals.blueprint.common.world.modification.structure.SimpleStr
 import com.teamabnormals.blueprint.common.world.modification.structure.StructureRepaletter;
 import com.teamabnormals.blueprint.common.world.modification.structure.StructureRepaletterEntry;
 import com.teamabnormals.blueprint.common.world.modification.structure.WeightedStructureRepaletter;
+import com.teamabnormals.blueprint.core.api.conditions.BlueprintAndCondition;
 import com.teamabnormals.blueprint.core.api.conditions.ConfigValueCondition;
 import com.teamabnormals.blueprint.core.registry.BlueprintDataPackRegistries;
 import com.teamabnormals.blueprint.core.registry.BlueprintHolderSets;
 import com.teamabnormals.woodworks.core.WoodworksConfig;
 import com.teamabnormals.woodworks.core.data.server.WoodworksRecipeProvider;
-import com.teamabnormals.woodworks.core.registry.WoodworksBlocks;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
@@ -27,7 +27,6 @@ import net.minecraft.world.level.levelgen.structure.BuiltinStructures;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.Tags;
-import net.minecraftforge.common.crafting.conditions.AndCondition;
 import net.minecraftforge.common.crafting.conditions.ICondition;
 
 import java.util.Optional;
@@ -125,15 +124,15 @@ public final class AtmosphericStructureRepaletters {
 	}
 
 	private static ICondition yuccaDesertVillageCondition(ICondition condition1, ICondition condition2) {
-		return new AndCondition(YUCCA_DESERT_VILLAGES, WoodworksRecipeProvider.WOODWORKS_LOADED, condition1, condition2);
+		return new BlueprintAndCondition(YUCCA_DESERT_VILLAGES, WoodworksRecipeProvider.WOODWORKS_LOADED, condition1, condition2);
 	}
 
 	private static ICondition grimwoodAncientCityCondition(ICondition condition1, ICondition condition2) {
-		return new AndCondition(GRIMWOOD_ANCIENT_CITIES, WoodworksRecipeProvider.WOODWORKS_LOADED, condition1, condition2);
+		return new BlueprintAndCondition(GRIMWOOD_ANCIENT_CITIES, WoodworksRecipeProvider.WOODWORKS_LOADED, condition1, condition2);
 	}
 
 	private static ICondition laurelScrublandVillageCondition(ICondition condition1, ICondition condition2) {
-		return new AndCondition(WoodworksRecipeProvider.WOODWORKS_LOADED, condition1, condition2);
+		return new BlueprintAndCondition(WoodworksRecipeProvider.WOODWORKS_LOADED, condition1, condition2);
 	}
 
 	private static ResourceKey<StructureRepaletterEntry> repaletterKey(String name) {

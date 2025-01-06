@@ -2,14 +2,14 @@
   "priority": 200,
   "repaletter": {
     "type": "blueprint:simple",
-    "replaces_block": "woodworks:jungle_chest",
+    "replaces_block": "minecraft:chest",
     "replaces_with": "atmospheric:yucca_chest"
   },
   "structures": {
     "type": "blueprint:conditional",
     "conditions": [
       {
-        "type": "forge:and",
+        "type": "blueprint:and",
         "values": [
           {
             "type": "atmospheric:config",

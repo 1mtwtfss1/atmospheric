@@ -8,7 +8,7 @@
     "type": "blueprint:conditional",
     "conditions": [
       {
-        "type": "forge:and",
+        "type": "blueprint:and",
         "values": [
           {
             "type": "atmospheric:config",
