@@ -1,5 +1,5 @@
 {
-  "priority": 50,
+  "priority": 200,
   "repaletter": {
     "type": "blueprint:simple",
     "replaces_block": "minecraft:bookshelf",
@@ -9,7 +9,7 @@
     "type": "blueprint:conditional",
     "conditions": [
       {
-        "type": "forge:and",
+        "type": "blueprint:and",
         "values": [
           {
             "type": "atmospheric:config",

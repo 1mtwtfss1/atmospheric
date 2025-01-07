@@ -61,6 +61,12 @@ public class AtmosphericBlockTagsProvider extends BlockTagsProvider {
 		);
 
 		this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(ARID_SAND.get(), RED_ARID_SAND.get(), SUSPICIOUS_ARID_SAND.get(), SUSPICIOUS_RED_ARID_SAND.get(), CRUSTOSE.get(), CRUSTOSE_PATH.get());
+
+		this.tag(BlockTags.SWORD_EFFICIENT).add(
+				AGAVE.get(), BARREL_CACTUS.get(), PASSION_VINE.get(), TALL_YUCCA_FLOWER.get(), ALOE_VERA.get(), TALL_ALOE_VERA.get(),
+				YUCCA_BRANCH.get(), DRAGON_ROOTS.get(), HANGING_CURRANT.get(), YUCCA_BUNDLE.get(), ROASTED_YUCCA_BUNDLE.get()
+		);
+
 		this.tag(BlockTags.OVERWORLD_CARVER_REPLACEABLES).add(ARID_SAND.get(), ARID_SANDSTONE.get(), RED_ARID_SAND.get(), RED_ARID_SANDSTONE.get(), IVORY_TRAVERTINE.get(), PEACH_TRAVERTINE.get(), PERSIMMON_TRAVERTINE.get(), SAFFRON_TRAVERTINE.get());
 
 		this.tag(BlockTags.BEE_GROWABLES).add(PASSION_VINE.get());

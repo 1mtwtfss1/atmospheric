@@ -875,7 +875,7 @@ public class AtmosphericFeatures {
 			register(context, TREES_SCRUBLAND, AtmosphericConfiguredFeatures.TREES_SCRUBLAND, VegetationPlacements.treePlacement(PlacementUtils.countExtra(3, 0.25F, 2)));
 			register(context, FLOWER_SCRUBLAND, AtmosphericConfiguredFeatures.FLOWER_SCRUBLAND, List.of(RarityFilter.onAverageOnceEvery(4), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
 			register(context, PATCH_ARID_SPROUTS_RARE, AtmosphericConfiguredFeatures.PATCH_ARID_SPROUTS, List.of(RarityFilter.onAverageOnceEvery(6), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
-			register(context, DRAGON_ROOTS, AtmosphericConfiguredFeatures.DRAGON_ROOTS, List.of(RarityFilter.onAverageOnceEvery(8), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+			register(context, DRAGON_ROOTS, AtmosphericConfiguredFeatures.DRAGON_ROOTS, List.of(RarityFilter.onAverageOnceEvery(2), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
 
 			// Grimwoods
 

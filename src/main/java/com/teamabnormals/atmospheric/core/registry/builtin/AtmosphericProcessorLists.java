@@ -57,11 +57,11 @@ public class AtmosphericProcessorLists {
 
 		register(context, PETRIFIED_ARID_GARDEN, ImmutableList.of(
 				new CappedProcessor(new RuleProcessor(List.of(new ProcessorRule(new BlockMatchTest(AtmosphericBlocks.ARID_SAND.get()), AlwaysTrueTest.INSTANCE, Blocks.DECORATED_POT.defaultBlockState()))), ConstantInt.of(6)),
-				aridGardenArchyLootProcessor(AtmosphericArchaeologyLoot.ARID_GARDEN_COMMON, 8),
+				aridGardenArchyLootProcessor(AtmosphericArchaeologyLoot.ARID_GARDEN_COMMON, 12),
 				aridGardenArchyLootProcessor(AtmosphericArchaeologyLoot.ARID_GARDEN_RARE, 6),
-				new CappedProcessor(new RuleProcessor(ImmutableList.of(new ProcessorRule(new BlockMatchTest(Blocks.AIR), AlwaysTrueTest.INSTANCE, AtmosphericBlocks.ARID_SAND.get().defaultBlockState()))), ConstantInt.of(1000)),
-				aridGardenArchyLootProcessor(AtmosphericArchaeologyLoot.ARID_GARDEN_COMMON, 10),
-				aridGardenArchyLootProcessor(AtmosphericArchaeologyLoot.ARID_GARDEN_RARE, 2)
+				new CappedProcessor(new RuleProcessor(ImmutableList.of(new ProcessorRule(new BlockMatchTest(Blocks.AIR), AlwaysTrueTest.INSTANCE, AtmosphericBlocks.ARID_SAND.get().defaultBlockState()))), ConstantInt.of(3000)),
+				aridGardenArchyLootProcessor(AtmosphericArchaeologyLoot.ARID_GARDEN_COMMON, 16),
+				aridGardenArchyLootProcessor(AtmosphericArchaeologyLoot.ARID_GARDEN_RARE, 4)
 		));
 
 		register(context, ARID_GARDEN_SAND_ARCHAEOLOGY, ImmutableList.of(
